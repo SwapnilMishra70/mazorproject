@@ -1,10 +1,9 @@
 if(process.env.NODE_ENV != "production"){
     require("dotenv").config();
 }
-
-
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT || 8080;
 const mongoose = require('mongoose');
 const path = require("path");
 const methodOverride = require("method-override")
@@ -66,9 +65,6 @@ const sessionOptions = {
     }, 
 };
 
-app.get("/",(req,res)=>{
-    res.redirect("/listings");
-});
 
 
 
@@ -90,16 +86,13 @@ app.use((req,res,next)=>{
     next();
 });
 
-// app.get("/demouser",async(req,res)=>{
-//     let fakeuser = new User({
-//         email: "student@gmail.com",
-//         username: "delta-student"
-//     });
 
-//     let registeredUser = await User.register(fakeuser,"helloworld");
-//     res.send(registeredUser);
-// });
 
+
+
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+});
 
 
 app.use("/listings",listingsRouter);
@@ -116,6 +109,8 @@ app.use((err,req,res,next)=>{
     // res.status(statusCode).send(message);
 });
 
-app.listen(8080,()=>{
-    console.log("server is listening to port");
+
+
+app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
 });
