@@ -116,11 +116,11 @@ body {
 /* Show page */
 
 .responsive-img {
-  width: 100% !important;
-  height: 60vh !important;
-  object-fit: cover !important;
-  display: block !important;
-  border-radius: 8px !important;
+  .card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover;
+}
 }
 
 @media (max-width: 768px) {
@@ -138,6 +138,15 @@ body {
 .show-card {
     padding-left: 0;
     padding-right: 0;;
+}
+
+.review-card {
+    height: 20vh !important;
+    width: 50vh !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center;
+
 }
 
 
