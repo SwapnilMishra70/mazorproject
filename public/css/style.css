@@ -25,10 +25,13 @@ body {
     font-size: 2rem;
 }
 
-.nave-link {
+.nav-link {
     color: #222222
     !important;
 
+}
+.nav-link:hover {
+    text-decoration: underline !important;
 }
 
 .f-info-links a{
@@ -111,9 +114,22 @@ body {
 }
 
 /* Show page */
-.show-img {
-    height: 60vh;
+
+.responsive-img {
+  width: 100% !important;
+  height: 60vh !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 8px !important;
 }
+
+@media (max-width: 768px) {
+  .responsive-img {
+    height: 30vh !important;
+  }
+}
+
+
 
 .btns {
     display: flex;

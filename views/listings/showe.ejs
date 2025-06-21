@@ -5,7 +5,7 @@
     </div>
 
     <div class="card col-6 offset-3 show-card listing-card" >
-  <img src="<%=listing.image.url%>" class="card-img-top show-img" alt="listing_image"/>
+  <img src="<%=listing.image.url%>" class="card-img-top responsive-img show-img" alt="listing_image"/>
   <div class="card-body">
     <p class="card-text"><i>Owned by: <%=listing.owner.username%></i></p>
 
@@ -109,10 +109,13 @@
                         <p class="card-text"><%=review.comment%></p>
                           
                     </div>
-                    <form class="mb-3" method="POST" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
+                    <%if(currUser && review.author._id.equals(currUser._id)){%>
+                        <form class="mb-3" method="POST" action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE">
                         <button class="btn btn-sm btn-dark">Delete</button>
                     </form>
 
+                    <%}%>
+                    
                 </div>
         <%}%>
         </div>
