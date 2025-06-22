@@ -20,6 +20,10 @@ router
 
 router.get("/new",isLoggedIn,listingController.renderNewForm);
 
+// Search route
+
+router.get("/search",listingController.searchByLocation);
+
 
 router
 .route("/:id")
@@ -53,6 +57,8 @@ router.get("/:id/edit",
 
 
 //Delete Route
+
+
 
 
 module.exports = router;

@@ -1,7 +1,7 @@
 body {
  font-family: 'Plus Jakarta Sans, sans-serif' !important;   
  display: flex !important;;
- flex: wrap;
+ flex-wrap: wrap;
  flex-direction: column !important;;
  min-height: 100vh !important;
 }
@@ -116,16 +116,19 @@ body {
 /* Show page */
 
 .responsive-img {
-  .card-img-top {
-    border-radius: 1rem !important;
+    height:  auto !important;
     width: 100% !important;
-    object-fit: cover;
+    object-fit: cover !important;
+    aspect-ratio: 4/3 !important;
+    border-radius: 1rem !important;
 }
-}
+
 
 @media (max-width: 768px) {
   .responsive-img {
+    width: 35vh !important;
     height: 30vh !important;
+    margin-right: 4 rem;
   }
 }
 

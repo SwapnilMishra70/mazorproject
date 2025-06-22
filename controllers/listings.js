@@ -1,4 +1,6 @@
 const Listing = require("../models/listing.js");
+
+
 module.exports.index = async(req,res)=>{
     const allListing = await Listing.find({});
     res.render("./listings/index.ejs",{allListing});
@@ -79,3 +81,30 @@ module.exports.deleteListings = async(req,res)=>{
     req.flash("success","Listing Deleted!");
     res.redirect("/listings");
 }
+
+module.exports.searchByLocation = async(req,res) => {
+    const {location} = req.query;
+
+    if(!location  || location.trim() === ""){
+        return res.redirect("/listings");
+    }
+    try{
+       const regex = new RegExp(location.trim(),'i');
+       const listings = await Listing.find({
+        $or: [
+        {location: regex},
+        {title: regex},
+        {country: regex},
+        ]
+       
+    });
+
+       res.render("listings/index",{allListing:listings})
+    } catch(e) {
+        console.error("Search Error",e);
+        req.flash("error","search failed");
+        res.redirect("/listings");
+    }
+    
+
+};

@@ -105,9 +105,14 @@
     </div>
 
 
-
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 ">
-    <%for(listing of allListing){%>
+  <%if(allListing.length === 0){%>
+    <div class="alert alert-warning mt-3" role="alert">
+      No listings Found..
+    </div>
+    
+    <%} else {%> 
+         <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 ">
+    <%for(let listing of allListing){%>
         <a href="/listings/<%=listing._id%>" class="listing-link">
         
    <div class="card col listing-card">
@@ -115,7 +120,11 @@
   src="<%=listing.image.url%>" 
   class="card-img-top" 
   alt="listing_image" 
-  style="height: 20rem"
+  style="height: auto;
+         width: 100%;
+         object-fit: cover;
+         aspect-ratio: 4/3;
+         border-radius: 1rem;"
   />
   <div class="card-img-overlay"></div>
 
@@ -137,6 +146,9 @@
  <%}%>
 
     </div>
+
+      <%}%>
+    
 
     <script>
       let taxSwitch = document.getElementById("switchCheckDefault");
