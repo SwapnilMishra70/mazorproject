@@ -114,6 +114,13 @@ body {
     box-sizing: content-box !important;
 }
 
+.edit-page , 
+.edit-page *::before,
+.edit-page *::after,
+.edit-page *{
+    box-sizing: content-box !important;
+}
+
 .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
