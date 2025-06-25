@@ -107,11 +107,26 @@ body {
 
 /* Edit page */
 
+.show-page , 
+.show-page *::before,
+.show-page *::after,
+.show-page *{
+    box-sizing: content-box !important;
+}
+
 .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
-
+    margin-right: 2px;
+    width: 10px;
 }
+
+.edit {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 10px;
+}
+
 
 /* Show page */
 
@@ -119,23 +134,16 @@ body {
     height:  auto !important;
     width: 100% !important;
     object-fit: cover !important;
-    aspect-ratio: 4/3 !important;
+    /* aspect-ratio: 4/3 !important; */
     border-radius: 1rem !important;
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 350px) {
   .responsive-img {
-    width: 35vh !important;
-    height: 30vh !important;
-    margin-right: 4 rem;
+    width: 20vh !important;
+    height: 15vh !important;
   }
-}
-
-
-
-.btns {
-    display: flex;
 }
 
 .show-card {
