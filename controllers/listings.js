@@ -24,7 +24,6 @@ module.exports.showForm = async(req,res)=>{
       req.flash("error","Requested listing does not exist!");
       return res.redirect("/listings");
    }
-   console.log(listing);
    res.render("listings/showe.ejs",{listing})
 
 };

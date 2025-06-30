@@ -110,7 +110,8 @@
                     <div class="card-body">
                         <h5 class="card-title">@<%=review.author.username%></h5>
                         <p class="starability-result" data-rating="<%=review.rating%>"></p>
-                        <p class="card-text"><%=review.comment%></p>
+                        <p class="card-text"><%=review.comment%><br>
+                        <i><%=review.createdAt.toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })%></i></p>
                           
                     </div>
                     <%if(currUser && review.author._id.equals(currUser._id)){%>
